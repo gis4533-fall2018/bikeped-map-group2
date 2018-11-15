@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Leaflet Map with a Feature Layer</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <!-- Load Leaflet from CDN-->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.2.3/dist/esri-leaflet.js"
+    integrity="sha512-YZ6b5bXRVwipfqul5krehD9qlbJzc6KOGXYsDjU9HHXW2gK57xmWl2gU6nAegiErAqFXhygKIsWPKbjLPXVb2g=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet Renderers from CDN -->
+  <script src="https://unpkg.com/esri-leaflet-renderers@2.0.6/dist/esri-leaflet-renderers.js"
+    integrity="sha512-mhpdD3igvv7A/84hueuHzV0NIKFHmp2IvWnY5tIdtAHkHF36yySdstEVI11JZCmSY4TCvOkgEoW+zcV/rUfo0A=="
+    crossorigin=""></script>
+
+  <style>
+    html,
+    body,
+    #map {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        // add map
+        const map = L.map('map', {
+          center: [45.52, -122.667],
+          zoom: 3
+        });
+        // add basemap
+        const esriStreets = L.esri.basemapLayer('Gray').addTo(map);
+        // add hosted feature layer
+        const pedCounts = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/BikePed_Count/FeatureServer/0?token=yXBwruBm9--r7wwuiA2xye_hpnAQirPIqqTCuR5h_GZdT_opM-m2MqwK0K8cXHI5amo-WQ3jlYeWVeemXeTpo1lgEXzDN5XTjtcBtp4qEtasvKUf9d7PDaO4f-ItBop6cxjojVV0pUblWJXMm6lwKVaUy4z_Nw45cHeqjgdktyJn5kwpuuwc8d7ewcLZuR3p27CFB1kKoZJYqlYG8SQ8lUb-IvBlnpuHkCD90mFbA7eT6gixU9h8tRPeg_hYA-uX'}).addTo(map);
+        
+       const bikeCounts = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/BikePed_Count/FeatureServer/1?token=yXBwruBm9--r7wwuiA2xye_hpnAQirPIqqTCuR5h_GZdT_opM-m2MqwK0K8cXHI5amo-WQ3jlYeWVeemXeTpo1lgEXzDN5XTjtcBtp4qEtasvKUf9d7PDaO4f-ItBop6cxjojVV0pUblWJXMm6lwKVaUy4z_Nw45cHeqjgdktyJn5kwpuuwc8d7ewcLZuR3p27CFB1kKoZJYqlYG8SQ8lUb-IvBlnpuHkCD90mFbA7eT6gixU9h8tRPeg_hYA-uX'}).addTo(map);
+    </script>
+</body>
+</html>
