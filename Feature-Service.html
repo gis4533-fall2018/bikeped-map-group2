@@ -48,6 +48,17 @@
         #header > * {
             display: inline
         }
+      .legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
   </style>
 </head>
 <body>
@@ -73,9 +84,28 @@
         };
         
         L.control.layers(null, overlayMaps).addTo(map);
+        
         //code taken from Leaflet JavaScript library// 
         
-        var legend = L.control({position: 'bottomright'});
+        var legend = L.control({position: 'bottomright'}); //create a legend variable//
+        legend.onAdd = function (map) { //function to create legend//
+
+            var div = L.DomUtil.create('div', 'info legend'),//html in the legend, adds info classes//
+            grades = [17, 35, 69, 135, 255],//add classes//
+            colors = ['#D7C4FF','#AA89E8','#8663C3','#695190','#4E465C'] //create array for colors//
+            labels = [];
+
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + colors[i] + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+'); 
+    }
+
+    return div;
+};
+
+legend.addTo(map);
 
     </script>
 </body>
