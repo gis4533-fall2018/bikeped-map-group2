@@ -75,9 +75,9 @@
         // add basemap
         const esriStreets = L.esri.basemapLayer('Gray').addTo(map);
         // add hosted feature layer
-        const pedCounts = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/BikePed_Count/FeatureServer/0?token=yXBwruBm9--r7wwuiA2xye_hpnAQirPIqqTCuR5h_GZdT_opM-m2MqwK0K8cXHI5amo-WQ3jlYeWVeemXeTpo1lgEXzDN5XTjtcBtp4qEtasvKUf9d7PDaO4f-ItBop6cxjojVV0pUblWJXMm6lwKVaUy4z_Nw45cHeqjgdktyJn5kwpuuwc8d7ewcLZuR3p27CFB1kKoZJYqlYG8SQ8lUb-IvBlnpuHkCD90mFbA7eT6gixU9h8tRPeg_hYA-uX'}).addTo(map);
+        const pedCounts = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/BikePed_Count/FeatureServer/0'}).addTo(map);
         
-       const bikeCounts = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/BikePed_Count/FeatureServer/1?token=yXBwruBm9--r7wwuiA2xye_hpnAQirPIqqTCuR5h_GZdT_opM-m2MqwK0K8cXHI5amo-WQ3jlYeWVeemXeTpo1lgEXzDN5XTjtcBtp4qEtasvKUf9d7PDaO4f-ItBop6cxjojVV0pUblWJXMm6lwKVaUy4z_Nw45cHeqjgdktyJn5kwpuuwc8d7ewcLZuR3p27CFB1kKoZJYqlYG8SQ8lUb-IvBlnpuHkCD90mFbA7eT6gixU9h8tRPeg_hYA-uX'}).addTo(map);
+       const bikeCounts = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/BikePed_Count/FeatureServer/1'}).addTo(map);
         //code taken from webdev 5 assingment//
        //code taken from Leaflet JavaScript library// 
         var overlayMaps = {
